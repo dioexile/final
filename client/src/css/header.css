@@ -1,0 +1,103 @@
+header{
+  background: #000000;
+  color: #FFFFFF;
+  height: 76px;
+}
+.link{
+  text-decoration: none;
+  color: #fff;
+}
+.left{
+  display: flex;
+  align-items: center;
+}
+
+.header{
+  height: 100%;
+  margin: auto;
+  width: 1200px;
+  padding: 10px 0 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo img{
+  width: 120px;
+}
+nav{
+  margin-left: 20px;
+}
+.navbar{
+  display: flex;
+  color:#fff;
+}
+.navbar-item{
+  margin: 0 10px;
+  font-size: 19px;
+  font-weight: 400;
+  cursor:pointer;
+  transition:all 0.4s;
+  border-bottom: 1px solid #000;
+
+}
+.navbar-item:hover{
+  color:#fff;
+  border-bottom: 1px solid #fff;
+}
+.auth{
+  display: flex;
+}
+.auth-btn{
+  margin: 10px;
+}
+.auth-btn button{
+  cursor:pointer;
+  background: #000;
+  color:#fff;
+  padding: 5px 20px;
+  border: 2px solid #fff;
+  border-radius: 30px;
+  transition: all 0.2s;
+}
+.auth-btn button:hover{
+  background: #fff;
+  color:#000;
+}
+.account-row{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 220px;
+}
+.account-row__item{
+  padding: 0 10px;
+  cursor: pointer;
+}
+.account-row__item img{
+  width: 100%;
+  height: 100%;
+}
+.account-row__item span{
+  font-weight: 600;
+  font-size: 20px;
+  border-bottom: 1px solid #000;
+  transition: all 0.2s;
+}
+.account-row__item span:hover{
+  border-bottom: 1px solid #fff;
+}
+.mt9{
+  margin-top: 9px;
+}
+.navbar-item img{
+  width: 25px;
+  height: 20px;
+}
+.discord{
+  display: flex;
+  color: #fff;
+  align-items: center;
+}
+.discord img{
+  margin-left: 10px;
+}

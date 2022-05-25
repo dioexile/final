@@ -1,0 +1,248 @@
+
+
+.market{
+  width: 100%;
+  margin-top: 20px;
+  padding-bottom: 70px;
+}
+.market-list__item{
+  color:#000;
+  margin-bottom: 20px;
+  padding: 0;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  padding-bottom: 20px;
+}
+.market-list__item p{
+  margin-bottom: 0!important;
+}
+.market-title{
+  padding-top: 70px;
+  padding-bottom: 75px;
+  text-align: center;
+  background: #252525;
+  color:#fff;
+}
+.title{
+  margin: auto;
+  color:#fff;
+  font-weight: 400;
+  font-size: 32px;
+}
+.desc{
+  margin: auto;
+  font-size: 16px;
+  max-width: 600px;
+  text-align: center;
+}
+.columns{
+  width: 100%;
+  margin-top: 20px;
+  border-bottom: 1px solid #ccc;
+}
+.columns-list{
+  display: flex;
+}
+.columns-list li{
+  padding: 10px 0 20px 20px;
+  font-weight: 600;
+  font-size: 16px;
+}
+.columns-list li:first-child{
+  padding-left: 0;
+}
+.columns-rating{
+  margin-left: 115px;
+}
+.columns-description{
+  margin-left: 220px;
+}
+.columns-price{
+  margin-left: 260px;
+}
+.market-list__item p:not(:first-child){
+  text-align: center;
+  font-weight: 500;
+  font-size: 16px;
+}
+.offer-project {
+  font-weight: 700!important;
+  font-size: 20px!important;
+  width: 50px;
+  padding-bottom: 0;
+  padding-left: 10px;
+}
+.offer-rating{
+  width: 100px;
+  font-weight: 700!important;
+  font-size: 18px!important;
+  margin-left: 50px;
+}
+.offer-description{
+  margin-left: 90px;
+  width: 350px;
+}
+.offer-price{
+  width: 200px;
+  margin-left: 70px;
+}
+.offer-button_btn{
+  padding: 5px 15px;
+  background: #000;
+  border:1px solid #000;
+  color:#fff;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+  border-radius: 3px;
+  transition: all 0.2s;
+}
+.offer-button_btn:hover{
+  background: #fff;
+  color:#000;
+}
+.offer-favorites img{
+  height: 25px;
+  cursor: pointer;
+}
+.offer-favorites{
+  margin-left: 2.5%;
+}
+.market-list__item a{
+  margin-left: auto;
+}
+@media (max-width: 1025px){
+
+  .header{
+    width: 960px;
+  }
+  .columns{
+    padding-left: 60px;
+  }
+  .market-list__item{
+    padding-left: 60px;
+  }
+  .columns-description{
+    margin-left: 150px;
+    
+  }
+  .offer-price{
+    margin-left: 0;
+  }
+  .offer-description{
+    width: 200px;
+  }
+  .columns-price{
+    margin-left: 110px;
+  }
+  .market-list__item a{
+    margin-left: 50px;
+  }
+}
+@media (max-width: 769px){
+
+  .header{
+    width: 760px;
+  }
+  .columns{
+    padding-left: 60px;
+  }
+  .market-list__item{
+    padding-left: 60px;
+  }
+  .columns-description{
+    margin-left: 50px;
+  }
+  .offer-price{
+    width: 150px;
+    margin-left: 70px;
+  }
+  .offer-description{
+    width: 100px;
+    margin-left: 70px;
+  }
+  .columns-price{
+    margin-left: 110px;
+  }
+  .market-list__item a{
+    margin-left: 50px;
+  }
+  .columns-rating{
+    margin-left: 20px;
+  }
+  .offer-rating{
+    margin-left: 5px;
+  }
+}
+@media (max-width: 426px){
+  .header{
+    width: 300px;
+    margin: 0;
+  }
+  .columns{
+    padding-left: 60px;
+  }
+  .market-list__item{
+    padding-left: 60px;
+  }
+  .columns-description{
+    margin-left: 50px;
+  }
+  .offer-price{
+    width: 150px;
+    margin-left: 70px;
+  }
+  .offer-description{
+    width: 100px;
+    margin-left: 70px;
+  }
+  .columns-price{
+    margin-left: 110px;
+  }
+  .market-list__item a{
+    margin-left: 50px;
+  }
+  .columns-rating{
+    margin-left: 20px;
+  }
+  .offer-rating{
+    margin-left: 5px;
+  }
+}
+.pagination{
+  display: flex;
+  margin: auto!important;
+  justify-content: center;
+}
+.page{
+  padding: 5px 10px;
+  border: 1px solid #000;
+}
+.page li{
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #000;
+}
+.page:not(:first-child){
+  border-left: none;
+}
+.page:hover li{
+  color: #fff;
+}
+.page:hover{
+  background: #000;
+}
+.pag-div{
+  width: 100%;
+}
+.offer-img{
+  border-radius: 15%;
+  width: 50px;
+  height: 50px;
+}
+.offer-user{
+  cursor: pointer;
+  width: 100px;
+  display: flex;
+  align-items: center;
+}

@@ -1,0 +1,135 @@
+.market-button{
+  background: #FAFAFA;
+  border-radius: 4px;
+  border: 1px solid #E6E8EA;
+  width: 175px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  padding: 2px;
+}
+.buy-btn{
+  cursor: pointer;
+  width: 48%;
+  line-height: 26px;
+  padding-left: auto;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 3px;
+  color:#000;
+}
+.buy-active{
+  background: #000;
+  box-shadow: 1px 0px 4px rgb(0 0 0 / 25%);
+  color: #fff;
+}
+.sell-btn{
+  cursor: pointer;
+  width: 48%;
+  line-height: 26px;
+  padding-left: auto;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 3px;
+  color:#000;
+}
+.sell-active{
+  background: #000;
+  box-shadow: 1px 0px 4px rgb(0 0 0 / 25%);
+  color: #fff;
+}
+.controls{
+  width: 100%;
+  box-shadow: 0px 2px 4px rgb(0 0 0 / 8%), 0px 0px 4px rgb(0 0 0 / 8%);
+  padding: 20px;
+}
+.market-controls{
+  height: 20px;
+  margin: auto;
+  width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.create-offer{
+  border: none;
+  color: #000;
+  padding: 5px 20px;
+  cursor: pointer;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+  border-radius: 3px;
+  transition: all 0.2s;
+}
+.create-offer:hover{
+  color:#fff;
+  background: #000;
+}
+.conrols-btns{
+  display: flex;
+  align-items: center;
+}
+.my-offers{
+  margin-right: 20px;
+}
+.my-offers button{
+  padding: 5px 28px;
+  background: #FFFFFF;
+  border: none;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0px 0px 4px rgb(0 0 0 / 50%);
+}
+.controls-right{
+  display: flex;
+  align-items: center;
+}
+.my-offers button:hover{
+  background: #000;
+  color:#fff;
+}
+.controls-input{
+  margin-left: 20px;
+  display: flex;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+}
+.controls-input input{
+  border-radius: 5px;
+  padding: 5px 10px;
+  border: none;
+  outline: none;
+}
+.controls-input button{
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+.search-icon{
+  background: transparent;
+}
+@media (max-width: 1025px){
+  .market-controls{
+    width: 960px;
+  }
+  
+}
+@media (max-width: 769px){
+  .market-controls{
+    width: 90%;
+  }
+  .controls-input input{
+    width: 100px;
+  }
+}
+@media (max-width: 426px){
+  .market-controls{
+    width: 400px;
+  }
+  .controls-input input{
+    width: 100px;
+  }
+}

@@ -1,0 +1,51 @@
+.offer-form{
+  display: none;
+  padding: 20px 20px 20px 0;
+  transition: all 0.2s
+}
+.active{
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s
+}
+.offer-form input{
+  padding: 10px;
+  outline: none;
+  width: 250px;
+  border: 1px solid #0000ff;
+  border-radius: 10px;
+}
+.offer-form textarea{
+  margin-top: 20px;
+  padding: 13px;
+  resize: none;
+  outline: none;
+  width: 250px;
+  border: 1px solid #0000ff;
+  border-radius: 10px;
+}
+
+.close-icon{
+  width: 20px;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  cursor: pointer;
+}
+.form{
+  display: flex;
+  flex-direction: column;
+}
+.form h2{
+  margin-bottom: 20px;
+}
+.form-btn{
+  margin-top: 20px;
+  padding: 10px;
+  background: #0000ff;
+  color:#fff;
+  border:none;
+  border-radius: 10px;
+  cursor:pointer;
+  width: 250px;
+}
