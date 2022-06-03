@@ -107,6 +107,13 @@ class UserController {
         await user.save()
         return res.json(user)
     }
+    async editName(req, res){
+        const {id, name} = req.body
+        const user = await User.findOne({where: {id}})
+        user.username = name
+        await user.save()
+        return res.json(user)
+    }
 }
 
 module.exports = new UserController()
