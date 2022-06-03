@@ -28,16 +28,23 @@ const Profile = () => {
   const [xui, setXui] = useState([])
   const navigate = useNavigate()
   const [loading, setLoading] = useState(true)
+  const [edit, setEdit] = useState(false)
+  const [value, setValue] = useState(user.username)
 
 
 
-
-
+  const setVis = () => {
+    if(edit){
+      return 'n'
+    } else{
+      return 'upload-vis'
+    }
+  }
 
   const isOwner = () => {
     if (user.id === jwt_decode(localStorage.getItem('token')).id){
       return(
-        <form>
+        <form className={setVis()}>
           <input type="file" name='img' accept='image/*' className='uploadFile' id="input__file" onChange={selectFile}/>
           <label htmlFor="input__file" className='uploadFile-button'>Upload image</label>
           <button onClick={sendFile} className="fileSubmit" disabled={active}>Submit</button>
@@ -51,10 +58,14 @@ const Profile = () => {
       )
     }
   }
+  const editProfile = () => {
+    setEdit(!edit)
+  }
   const isOwnerBtn = () => {
     if (user.id === jwt_decode(localStorage.getItem('token')).id){
       return(
         <div className="account-row__button">
+          <button onClick={editProfile} className="edit-profile">Edit</button>
           <button onClick={logOut}>Logout</button>
         </div>
       )
@@ -76,13 +87,17 @@ const Profile = () => {
     return sum / arr.length;
   }
 
-  const sendFile = useCallback((e) => {
+  const sendFile = useCallback( (e) => {
+    axios.post('http://localhost:5000/api/user/edit', {id: id, name: value})
     e.preventDefault()
     const formData = new FormData()
     formData.append('img', file)
     uploadAvatar(user.id, formData).then(res => setAvatar(res.formData))
   }, [file, user.id])
-  
+
+  const editName = async () => {
+    await axios.post('http://localhost:5000/api/user/edit', {id: id, name: value})
+  }
   const showForm = () => {
     if(visible){
       return(
@@ -118,6 +133,7 @@ const Profile = () => {
 
     fetchOneUser(id).then(data => {
       setUser(data)
+      setValue(data.username)
       setImg(`${process.env.REACT_APP_API_URL + 'static/' + data.img}`)
       setRegDate(data.createdAt)
       const getRating = async () => {
@@ -145,7 +161,20 @@ const Profile = () => {
     return <div className="spinner"></div>
   }
 
-  
+  const editUsername = () => {
+    if(edit){
+      return(
+        <div className='editName'>
+          <input type="text" value={value} onChange={(e)=>setValue(e.target.value)}/>
+          <img src="/img/conf.png" alt="confirm" onClick={editName}/>
+        </div>
+      ) 
+    } else{
+      return(
+        <span className='username'>{user.username}</span>
+      )
+    }
+  }
   const offerFilter = (offer) => {
     return offer.userId === user.id
   }
@@ -246,9 +275,17 @@ const Profile = () => {
     localStorage.removeItem('token')
     navigate('../../')
   }
+  const isAdmin = () => {
+    if(user.role === 'ADMIN'){
+      return <span className='role'>{`Role: ${user.role}`}</span>
+    } else{
+      return <span className='defrole'>{`Role: ${user.role}`}</span>
+
+    }
+  }
   return (
     
-    <div className="container">
+    <div className="container ww">
       {isOwnerBtn()}
       <div className="profile">
         <div className="profile-info">
@@ -259,7 +296,8 @@ const Profile = () => {
               </div>
             </a>
             <div className="profile-name">
-              <span className='username'>{user.username}</span>
+              {editUsername()}
+              {isAdmin()}
               <div className="upload-wrapper">
               {isOwner()}
               </div>

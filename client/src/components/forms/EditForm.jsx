@@ -59,9 +59,9 @@ const EditForm = () => {
       e.preventDefault()
 
       if(contract){
-        await editOffer(id, project, wallet,`contract price`, shortDescription, fullDescription)
+        await editOffer(id, project, wallet, `contract price`, shortDescription, fullDescription)
       } else{
-        await editOffer(id, project, wallet, price + ` ${selected}`, shortDescription, fullDescription)
+        await editOffer(id, project, wallet, price + ` $`, shortDescription, fullDescription)
       }
       setProject('')
       setWallet('')
@@ -103,7 +103,7 @@ const EditForm = () => {
         <div className={styles.join(' ')}>
           <label>Price</label>
           <input value={price} onChange={(e)=>setPrice(e.target.value)} type="text" placeholder='Enter a value' />
-          <div className="selected">
+          {/* <div className="selected">
             <Select defaultValue="Network" onChange={handleChange} >
               <Option value="BSC">BSC</Option>
               <Option value="TRC20">TRC20</Option>
@@ -114,7 +114,7 @@ const EditForm = () => {
               {selected === 'USDT' && ' USDT'}
               {selected === 'SOLANA' && ' SOLANA'}
             </span>
-          </div>
+          </div> */}
         </div>
         <button className="offer-formbtn">Edit offer</button>
       </form>

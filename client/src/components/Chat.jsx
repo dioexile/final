@@ -5,10 +5,12 @@ import socketIOClient from "socket.io-client";
 import { fetchMessages, fetchOneChat } from '../http/chatApi';
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
+import DealForm from './forms/DealForm';
 
 
 const Chat = ({you}) => {
   const [value, setValue] = useState('');
+  const [visible, setVisible] = useState(false)
   const [sender, setSender] = useState()
   const [recipient, setRecipient] = useState()
   const [messages, setMessages] = useState([])
@@ -55,7 +57,6 @@ const Chat = ({you}) => {
       offerId: recipient.id,
       messageText: value,
     })
-    
     setValue('')
   }
 
@@ -77,12 +78,35 @@ const Chat = ({you}) => {
       )
     }
   }
+  const ShowDeal = () => {
+    if(visible){
+      return <DealForm setVisible={setVisible} you={you}/>
+    } else{
+      return null
+    }
+  }
+  const addMsgHandler = (e) => {
+    if(e.key=== 'Enter'){
+      socketRef.current.emit('send', {
+        userId: jwt_decode(localStorage.getItem('token')).id,
+        offerId: recipient.id,
+        messageText: value,
+      })
+      setValue('')
+    }
+  }
   return (
     <div className="messages-main">
-      <div className="about-chat__user" onClick={()=> navigate(`../../profile/${you.id}`)}>
-        <img src={`${process.env.REACT_APP_API_URL + 'static/' + you.img}`} alt="" />
-        <h3>{you.username}</h3>
+      <div className="about-chat__user" >
+        <div className="left" onClick={()=> navigate(`../../profile/${you.id}`)}>
+          <img src={`${process.env.REACT_APP_API_URL + 'static/' + you.img}`} alt="" />
+          <h3>{you.username}</h3>
+        </div>
+        <div className="right" onClick={()=>setVisible(true)}>
+          <img src="/img/hands.png" className='handshake' onClick={()=> console.log(you) }/>
+        </div>
       </div>
+      
       <div className="conversation">
         {messages.map((mes)=>(
           get(mes)
@@ -94,12 +118,14 @@ const Chat = ({you}) => {
           value={value}
           placeholder={`Write to ${you.username}`}
           onChange={e => setValue(e.target.value)}
+          onKeyPress={addMsgHandler}
         />
         <img 
           src="/img/send.svg"
           onClick={()=>send(value)}
         />
       </div>
+      {ShowDeal()}
     </div>
   )
 }

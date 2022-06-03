@@ -47,7 +47,7 @@ const Offerform = () => {
       if(contract){
         data = await createOffer(project, wallet, `contract price`, shortDescription, fullDescription)
       } else{
-        data = await createOffer(project, wallet, price + ` ${selected}`, shortDescription, fullDescription)
+        data = await createOffer(project, wallet, price + ` $`, shortDescription, fullDescription)
       }
       setProject('')
       setWallet('')
@@ -88,7 +88,7 @@ const Offerform = () => {
         <div className={styles.join(' ')}>
           <label>Price</label>
           <input value={price} onChange={(e)=>setPrice(e.target.value)} type="text" placeholder='Enter a value' />
-          <div className="selected">
+          {/* <div className="selected">
             <Select defaultValue="Network" onChange={handleChange} >
               <Option value="BSC">BSC</Option>
               <Option value="TRC20">TRC20</Option>
@@ -99,7 +99,7 @@ const Offerform = () => {
               {selected === 'USDT' && ' USDT'}
               {selected === 'SOLANA' && ' SOLANA'}
             </span>
-          </div>
+          </div> */}
         </div>
         <button className="offer-formbtn">Add Offer</button>
       </form>
